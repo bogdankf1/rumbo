@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #141110;
+  --color-surface: #1c1917;
+  --color-raised: #242019;
+  --color-line: #2e2823;
+  --color-ink: #ede8e3;
+  --color-muted: #a8a29e;
+  --color-faint: #6f6862;
+  --color-accent: #c2704e;
+  --color-amber: #d99a4e;
+  --color-strong: #8fae7c;
+  --color-good: #d99a4e;
+  --color-partial: #c2704e;
+  --color-weak: #a3524a;
+
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-body: var(--font-instrument), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), monospace;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-accent) 40%, transparent);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fade-up 0.35s ease-out both;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.stream-caret::after {
+  content: "\258F";
+  color: var(--color-accent);
+  animation: blink 1s steps(1) infinite;
+}
