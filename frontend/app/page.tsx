@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { Chat } from "@/components/chat/Chat";
 import { EmptyState } from "@/components/EmptyState";
 import { Sidebar } from "@/components/Sidebar";
 import { TopBar } from "@/components/TopBar";
@@ -63,11 +64,7 @@ export default function Home() {
           {loaded && !hasDocs ? (
             <EmptyState onLoadDemo={loadDemo} demoLoading={demoLoading} />
           ) : (
-            <div className="flex h-full items-center justify-center">
-              <p className="font-display italic text-muted">
-                Chat arrives in slice 3.
-              </p>
-            </div>
+            <Chat />
           )}
         </main>
       </div>
