@@ -8,6 +8,7 @@ class ResumeOut(BaseModel):
     id: uuid.UUID
     name: str
     source_filename: str | None
+    raw_text: str
     extracted: dict
     is_active: bool
     created_at: datetime
@@ -21,6 +22,7 @@ class JobOut(BaseModel):
     title: str
     company: str
     source: str
+    raw_text: str
     extracted: dict
     created_at: datetime
     fit: dict | None = None

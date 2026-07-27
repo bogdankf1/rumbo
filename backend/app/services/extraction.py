@@ -15,7 +15,9 @@ _client: AsyncAnthropic | None = None
 def client() -> AsyncAnthropic:
     global _client
     if _client is None:
-        _client = AsyncAnthropic(api_key=settings.anthropic_api_key)
+        # max_retries raised from the default 2: transient 529 overloaded
+        # bursts were the only failure mode observed under sustained load.
+        _client = AsyncAnthropic(api_key=settings.anthropic_api_key, max_retries=5)
     return _client
 
 

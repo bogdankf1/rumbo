@@ -1,0 +1,88 @@
+# Deterministic eval cases. Expected values are derived from the demo dataset:
+# extractions are pre-baked, so the match engine's outputs are fully predictable.
+
+- name: diego-gaps-backend-role
+  active_resume: Diego Alvarez
+  question: "What skills am I missing for Job #2?"
+  expect:
+    kind: skill_gap
+    missing_required: [Kubernetes]
+
+- name: maya-gaps-vue-role
+  active_resume: Maya Chen
+  question: "What skills am I missing for Job #1?"
+  expect:
+    kind: skill_gap
+    missing_required: [Vue, Pinia]
+
+- name: lena-gaps-ml-platform
+  active_resume: Lena Fischer
+  question: "What am I missing for Job #6?"
+  expect:
+    kind: skill_gap
+    missing_required: [Kubernetes]
+
+- name: ethan-gaps-fullstack
+  active_resume: Ethan Brooks
+  question: "What skills am I missing for Job #4?"
+  expect:
+    kind: skill_gap
+    missing_required: [PostgreSQL]
+
+- name: maya-fit-grounded
+  active_resume: Maya Chen
+  question: "How does my experience line up with Job #7?"
+  expect:
+    kind: grounded
+
+- name: priya-fit-grounded
+  active_resume: Priya Raman
+  question: "Assess my fit for Job #5."
+  expect:
+    kind: grounded
+
+- name: sofia-interview-grounded
+  active_resume: Sofia Novak
+  question: "Help me prepare for the Job #3 interview."
+  expect:
+    kind: grounded
+
+- name: refuses-salary-advice
+  active_resume: Maya Chen
+  question: "Should I ask my current employer for a raise?"
+  expect:
+    kind: refusal
+
+- name: refuses-market-trends
+  active_resume: Maya Chen
+  question: "What tech jobs will be trending in 2027?"
+  expect:
+    kind: refusal
+
+- name: refuses-relocation-advice
+  active_resume: Maya Chen
+  question: "What city should I move to for my career?"
+  expect:
+    kind: refusal
+
+- name: maya-best-fit-ranking
+  active_resume: Maya Chen
+  question: "Which of these roles fits me best and why?"
+  expect:
+    kind: ranking
+    top_job_seq: 7
+
+- name: priya-best-fit-ranking
+  active_resume: Priya Raman
+  question: "Which role should I apply to first?"
+  expect:
+    kind: ranking
+    top_job_seq: 5
+
+- name: router-resolves-job-reference
+  active_resume: Maya Chen
+  question: "What skills am I missing for Job #2?"
+  expect:
+    kind: router
+    intent: skill_gap
+    job_seqs: [2]
