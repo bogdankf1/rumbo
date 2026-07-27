@@ -6,7 +6,7 @@ from fastapi import FastAPI, Request
 
 from app.db import init_db
 from app.logging import configure_logging
-from app.routers import demo, health, jobs, resumes
+from app.routers import chat, demo, health, jobs, resumes
 
 configure_logging()
 log = structlog.get_logger()
@@ -40,3 +40,4 @@ app.include_router(health.router)
 app.include_router(resumes.router)
 app.include_router(jobs.router)
 app.include_router(demo.router)
+app.include_router(chat.router)
