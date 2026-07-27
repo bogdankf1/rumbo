@@ -1,0 +1,24 @@
+{
+  "meta": { "title": "ML Platform Engineer", "company": "Arbor AI" },
+  "raw_text": "ML Platform Engineer\nArbor AI, Zurich\n\nAbout the role\nArbor AI ships forecasting products for agriculture. You will industrialize how models reach production.\n\nRequirements\nAt least 5 years of engineering experience with 2 years in ML systems.\nModel development experience with PyTorch.\nServing and orchestrating training workloads on Kubernetes.\nExperiment tracking and a model registry with MLflow.\n\nNice to have\nCloud experience on AWS.\n\nResponsibilities\nBuild the training and serving platform.\nCut model deployment time from days to hours.\nPartner with researchers on reproducibility.",
+  "extracted": {
+    "title": "ML Platform Engineer",
+    "company": "Arbor AI",
+    "location": "Zurich",
+    "seniority": null,
+    "min_years_experience": 5.0,
+    "required_skills": [
+      { "name": "PyTorch", "evidence": "Model development experience with PyTorch.", "verified": true },
+      { "name": "Kubernetes", "evidence": "Serving and orchestrating training workloads on Kubernetes.", "verified": true },
+      { "name": "MLflow", "evidence": "Experiment tracking and a model registry with MLflow.", "verified": true }
+    ],
+    "nice_to_have_skills": [
+      { "name": "AWS", "evidence": "Cloud experience on AWS.", "verified": true }
+    ],
+    "responsibilities": [
+      "Build the training and serving platform.",
+      "Cut model deployment time from days to hours.",
+      "Partner with researchers on reproducibility."
+    ]
+  }
+}

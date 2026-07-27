@@ -1,0 +1,24 @@
+{
+  "meta": { "name": "Priya Raman", "persona": "Platform lead; near-perfect fit for J5" },
+  "raw_text": "Priya Raman\nPlatform Engineering Lead, Seattle WA\npriya.raman@example.com\n\nSummary\nPlatform engineering lead with 8 years of experience running cloud infrastructure at scale.\n\nSkills\nKubernetes, Terraform, AWS, Go, CI/CD, Prometheus, Docker\n\nExperience\n\nPlatform Engineering Lead at Northgrid (2021 to 2026)\nRan a fleet of 40 Kubernetes clusters serving 900 microservices.\nDefined all infrastructure as Terraform modules reviewed like code.\nOperated production workloads on AWS across three regions.\nWrote internal operators and tooling in Go.\nRebuilt the CI/CD platform, cutting deploy times from 40 to 8 minutes.\nBuilt the observability stack around Prometheus and Grafana.\n\nSite Reliability Engineer at Corvid Systems (2018 to 2021)\nContainerized legacy services with Docker.\n\nEducation\nBTech Computer Engineering, Anna University, 2017",
+  "extracted": {
+    "full_name": "Priya Raman",
+    "headline": "Platform Engineering Lead",
+    "total_years_experience": 8.0,
+    "seniority": "lead",
+    "skills": [
+      { "name": "Kubernetes", "category": "tool", "evidence": "Ran a fleet of 40 Kubernetes clusters serving 900 microservices.", "years": null, "verified": true },
+      { "name": "Terraform", "category": "tool", "evidence": "Defined all infrastructure as Terraform modules reviewed like code.", "years": null, "verified": true },
+      { "name": "AWS", "category": "cloud", "evidence": "Operated production workloads on AWS across three regions.", "years": null, "verified": true },
+      { "name": "Go", "category": "language", "evidence": "Wrote internal operators and tooling in Go.", "years": null, "verified": true },
+      { "name": "CI/CD", "category": "practice", "evidence": "Rebuilt the CI/CD platform, cutting deploy times from 40 to 8 minutes.", "years": null, "verified": true },
+      { "name": "Prometheus", "category": "tool", "evidence": "Built the observability stack around Prometheus and Grafana.", "years": null, "verified": true },
+      { "name": "Docker", "category": "tool", "evidence": "Containerized legacy services with Docker.", "years": null, "verified": true }
+    ],
+    "roles": [
+      { "title": "Platform Engineering Lead", "company": "Northgrid", "start": "2021", "end": "2026", "summary": "Led the platform team running multi-region Kubernetes infrastructure.", "technologies": ["Kubernetes", "Terraform", "AWS", "Go", "Prometheus"] },
+      { "title": "Site Reliability Engineer", "company": "Corvid Systems", "start": "2018", "end": "2021", "summary": "Ran reliability work and containerized legacy services.", "technologies": ["Docker"] }
+    ],
+    "education": [{ "degree": "BTech Computer Engineering", "institution": "Anna University", "year": "2017" }]
+  }
+}

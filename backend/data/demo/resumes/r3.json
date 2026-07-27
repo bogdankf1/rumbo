@@ -1,0 +1,24 @@
+{
+  "meta": { "name": "Sofia Novak", "persona": "Data engineer; misses Kafka for J3" },
+  "raw_text": "Sofia Novak\nData Engineer, Berlin\nsofia.novak@example.com\n\nSummary\nData engineer with 6 years of experience building batch and warehouse pipelines.\n\nSkills\nPython, Spark, Airflow, dbt, Snowflake, SQL, AWS\n\nExperience\n\nSenior Data Engineer at Klar Insights (2022 to 2026)\nBuilt daily Spark jobs processing 3 terabytes of clickstream data.\nOrchestrated 120 production pipelines with Airflow.\nModeled the analytics warehouse in dbt on top of Snowflake.\nTuned long-running SQL transformations for the finance mart.\nRan the whole platform on AWS EMR and S3.\n\nData Engineer at Portoflow (2020 to 2022)\nWrote Python ETL services for logistics events.\n\nEducation\nMS Data Engineering, TU Berlin, 2020",
+  "extracted": {
+    "full_name": "Sofia Novak",
+    "headline": "Data Engineer",
+    "total_years_experience": 6.0,
+    "seniority": "senior",
+    "skills": [
+      { "name": "Python", "category": "language", "evidence": "Wrote Python ETL services for logistics events.", "years": null, "verified": true },
+      { "name": "Spark", "category": "tool", "evidence": "Built daily Spark jobs processing 3 terabytes of clickstream data.", "years": null, "verified": true },
+      { "name": "Airflow", "category": "tool", "evidence": "Orchestrated 120 production pipelines with Airflow.", "years": null, "verified": true },
+      { "name": "dbt", "category": "tool", "evidence": "Modeled the analytics warehouse in dbt on top of Snowflake.", "years": null, "verified": true },
+      { "name": "Snowflake", "category": "database", "evidence": "Modeled the analytics warehouse in dbt on top of Snowflake.", "years": null, "verified": true },
+      { "name": "SQL", "category": "language", "evidence": "Tuned long-running SQL transformations for the finance mart.", "years": null, "verified": true },
+      { "name": "AWS", "category": "cloud", "evidence": "Ran the whole platform on AWS EMR and S3.", "years": null, "verified": true }
+    ],
+    "roles": [
+      { "title": "Senior Data Engineer", "company": "Klar Insights", "start": "2022", "end": "2026", "summary": "Owned batch pipelines and the analytics warehouse.", "technologies": ["Spark", "Airflow", "dbt", "Snowflake", "SQL", "AWS"] },
+      { "title": "Data Engineer", "company": "Portoflow", "start": "2020", "end": "2022", "summary": "Built ETL services for logistics events.", "technologies": ["Python"] }
+    ],
+    "education": [{ "degree": "MS Data Engineering", "institution": "TU Berlin", "year": "2020" }]
+  }
+}

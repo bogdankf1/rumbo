@@ -1,0 +1,24 @@
+{
+  "meta": { "name": "Maya Chen", "persona": "React-heavy senior frontend; strong for J7, weak for the Vue role J1" },
+  "raw_text": "Maya Chen\nSenior Frontend Engineer, Portland OR\nmaya.chen@example.com\n\nSummary\nSenior frontend engineer with 7 years of experience building consumer web products.\n\nSkills\nReact, TypeScript, Next.js, GraphQL, Jest, Tailwind CSS, JavaScript\n\nExperience\n\nSenior Frontend Engineer at Brightline Commerce (2021 to 2026)\nLed the storefront rebuild in React and TypeScript, serving two million monthly shoppers.\nMoved the product catalog to Next.js server components, cutting page load times by 40 percent.\nDesigned the GraphQL layer for checkout and profile data.\nIntroduced Jest component testing and raised coverage to 85 percent.\nBuilt the design system on Tailwind CSS.\n\nFrontend Engineer at Juniper Media (2019 to 2021)\nBuilt interactive editorial pages in JavaScript and React.\nShipped a live election results dashboard read by 300 thousand people.\n\nEducation\nBS Computer Science, University of Oregon, 2019",
+  "extracted": {
+    "full_name": "Maya Chen",
+    "headline": "Senior Frontend Engineer",
+    "total_years_experience": 7.0,
+    "seniority": "senior",
+    "skills": [
+      { "name": "React", "category": "framework", "evidence": "Led the storefront rebuild in React and TypeScript, serving two million monthly shoppers.", "years": null, "verified": true },
+      { "name": "TypeScript", "category": "language", "evidence": "Led the storefront rebuild in React and TypeScript, serving two million monthly shoppers.", "years": null, "verified": true },
+      { "name": "Next.js", "category": "framework", "evidence": "Moved the product catalog to Next.js server components, cutting page load times by 40 percent.", "years": null, "verified": true },
+      { "name": "GraphQL", "category": "tool", "evidence": "Designed the GraphQL layer for checkout and profile data.", "years": null, "verified": true },
+      { "name": "Jest", "category": "tool", "evidence": "Introduced Jest component testing and raised coverage to 85 percent.", "years": null, "verified": true },
+      { "name": "Tailwind CSS", "category": "framework", "evidence": "Built the design system on Tailwind CSS.", "years": null, "verified": true },
+      { "name": "JavaScript", "category": "language", "evidence": "Built interactive editorial pages in JavaScript and React.", "years": null, "verified": true }
+    ],
+    "roles": [
+      { "title": "Senior Frontend Engineer", "company": "Brightline Commerce", "start": "2021", "end": "2026", "summary": "Led the storefront rebuild for a commerce platform serving two million monthly shoppers.", "technologies": ["React", "TypeScript", "Next.js", "GraphQL", "Jest", "Tailwind CSS"] },
+      { "title": "Frontend Engineer", "company": "Juniper Media", "start": "2019", "end": "2021", "summary": "Built editorial and data-driven pages for a media company.", "technologies": ["JavaScript", "React"] }
+    ],
+    "education": [{ "degree": "BS Computer Science", "institution": "University of Oregon", "year": "2019" }]
+  }
+}

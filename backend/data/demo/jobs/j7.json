@@ -1,0 +1,24 @@
+{
+  "meta": { "title": "Senior Product Engineer", "company": "Harbor Labs" },
+  "raw_text": "Senior Product Engineer\nHarbor Labs, Remote (US)\n\nAbout the role\nHarbor Labs builds planning software for architecture studios. Small team, high ownership, sharp design bar.\n\nRequirements\nAt least 5 years of product engineering experience.\nDeep experience building interfaces in React.\nStrong TypeScript throughout the codebase.\nProduction experience with Next.js.\n\nNice to have\nSchema design experience with GraphQL.\n\nResponsibilities\nOwn planning canvas features from idea to ship.\nRaise the bar on interaction quality.\nShape the frontend architecture as we grow.",
+  "extracted": {
+    "title": "Senior Product Engineer",
+    "company": "Harbor Labs",
+    "location": "Remote (US)",
+    "seniority": "senior",
+    "min_years_experience": 5.0,
+    "required_skills": [
+      { "name": "React", "evidence": "Deep experience building interfaces in React.", "verified": true },
+      { "name": "TypeScript", "evidence": "Strong TypeScript throughout the codebase.", "verified": true },
+      { "name": "Next.js", "evidence": "Production experience with Next.js.", "verified": true }
+    ],
+    "nice_to_have_skills": [
+      { "name": "GraphQL", "evidence": "Schema design experience with GraphQL.", "verified": true }
+    ],
+    "responsibilities": [
+      "Own planning canvas features from idea to ship.",
+      "Raise the bar on interaction quality.",
+      "Shape the frontend architecture as we grow."
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "meta": { "name": "Ethan Brooks", "persona": "Junior-mid full-stack JS; partial fit for J4 (MongoDB not PostgreSQL, 3y vs 4y)" },
+  "raw_text": "Ethan Brooks\nFull-stack JavaScript Developer, Denver CO\nethan.brooks@example.com\n\nSummary\nFull-stack developer with 3 years of experience shipping web apps on small product teams.\n\nSkills\nJavaScript, Node.js, Express, React, MongoDB\n\nExperience\n\nFull-stack Developer at Quilt Apps (2023 to 2026)\nBuilt booking and billing features in JavaScript across the stack.\nWrote Node.js services with Express for notifications and webhooks.\nShipped React dashboards for customer analytics.\nStored session and booking data in MongoDB.\n\nJunior Developer at Halstone Digital (2022 to 2023)\nMaintained marketing sites and internal tools.\n\nEducation\nBS Information Systems, CU Denver, 2022",
+  "extracted": {
+    "full_name": "Ethan Brooks",
+    "headline": "Full-stack JavaScript Developer",
+    "total_years_experience": 3.0,
+    "seniority": "mid",
+    "skills": [
+      { "name": "JavaScript", "category": "language", "evidence": "Built booking and billing features in JavaScript across the stack.", "years": null, "verified": true },
+      { "name": "Node.js", "category": "framework", "evidence": "Wrote Node.js services with Express for notifications and webhooks.", "years": null, "verified": true },
+      { "name": "Express", "category": "framework", "evidence": "Wrote Node.js services with Express for notifications and webhooks.", "years": null, "verified": true },
+      { "name": "React", "category": "framework", "evidence": "Shipped React dashboards for customer analytics.", "years": null, "verified": true },
+      { "name": "MongoDB", "category": "database", "evidence": "Stored session and booking data in MongoDB.", "years": null, "verified": true }
+    ],
+    "roles": [
+      { "title": "Full-stack Developer", "company": "Quilt Apps", "start": "2023", "end": "2026", "summary": "Shipped booking, billing, and analytics features across the stack.", "technologies": ["JavaScript", "Node.js", "Express", "React", "MongoDB"] },
+      { "title": "Junior Developer", "company": "Halstone Digital", "start": "2022", "end": "2023", "summary": "Maintained marketing sites and internal tools.", "technologies": ["JavaScript"] }
+    ],
+    "education": [{ "degree": "BS Information Systems", "institution": "CU Denver", "year": "2022" }]
+  }
+}

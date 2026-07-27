@@ -1,0 +1,25 @@
+{
+  "meta": { "title": "Backend Engineer", "company": "Finch Health" },
+  "raw_text": "Backend Engineer\nFinch Health, New York NY (hybrid)\n\nAbout the role\nFinch Health builds scheduling and records tools for outpatient clinics. You will design the APIs that clinics rely on every day.\n\nRequirements\nAt least 4 years of backend engineering experience.\nStrong Python skills in production services.\nHands-on experience building APIs with FastAPI.\nSolid data modeling with PostgreSQL.\nExperience deploying and operating services on Kubernetes.\n\nNice to have\nEvent streaming experience with Kafka.\n\nResponsibilities\nDesign and ship the scheduling API surface.\nOwn reliability for the records service.\nWork with compliance on audit logging.",
+  "extracted": {
+    "title": "Backend Engineer",
+    "company": "Finch Health",
+    "location": "New York NY (hybrid)",
+    "seniority": null,
+    "min_years_experience": 4.0,
+    "required_skills": [
+      { "name": "Python", "evidence": "Strong Python skills in production services.", "verified": true },
+      { "name": "FastAPI", "evidence": "Hands-on experience building APIs with FastAPI.", "verified": true },
+      { "name": "PostgreSQL", "evidence": "Solid data modeling with PostgreSQL.", "verified": true },
+      { "name": "Kubernetes", "evidence": "Experience deploying and operating services on Kubernetes.", "verified": true }
+    ],
+    "nice_to_have_skills": [
+      { "name": "Kafka", "evidence": "Event streaming experience with Kafka.", "verified": true }
+    ],
+    "responsibilities": [
+      "Design and ship the scheduling API surface.",
+      "Own reliability for the records service.",
+      "Work with compliance on audit logging."
+    ]
+  }
+}

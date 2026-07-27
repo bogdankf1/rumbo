@@ -1,0 +1,24 @@
+{
+  "meta": { "title": "Senior Frontend Engineer (Vue)", "company": "Nimbus Retail" },
+  "raw_text": "Senior Frontend Engineer (Vue)\nNimbus Retail, Remote (EU)\n\nAbout the role\nNimbus Retail powers the storefronts of 400 independent shops. You will own the buyer-facing experience.\n\nWhat you must bring\nAt least 5 years of professional frontend engineering experience.\nDeep production experience with Vue and its ecosystem.\nStrong TypeScript skills in large codebases.\nState management experience with Pinia.\n\nNice to have\nComponent testing with Vitest.\n\nWhat you will do\nOwn the storefront checkout experience end to end.\nPair with designers on the shared component library.\nMentor two mid-level engineers on the team.",
+  "extracted": {
+    "title": "Senior Frontend Engineer (Vue)",
+    "company": "Nimbus Retail",
+    "location": "Remote (EU)",
+    "seniority": "senior",
+    "min_years_experience": 5.0,
+    "required_skills": [
+      { "name": "Vue", "evidence": "Deep production experience with Vue and its ecosystem.", "verified": true },
+      { "name": "TypeScript", "evidence": "Strong TypeScript skills in large codebases.", "verified": true },
+      { "name": "Pinia", "evidence": "State management experience with Pinia.", "verified": true }
+    ],
+    "nice_to_have_skills": [
+      { "name": "Vitest", "evidence": "Component testing with Vitest.", "verified": true }
+    ],
+    "responsibilities": [
+      "Own the storefront checkout experience end to end.",
+      "Pair with designers on the shared component library.",
+      "Mentor two mid-level engineers on the team."
+    ]
+  }
+}

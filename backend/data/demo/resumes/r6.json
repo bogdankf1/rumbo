@@ -1,0 +1,22 @@
+{
+  "meta": { "name": "Lena Fischer", "persona": "ML engineer; misses Kubernetes and a year of experience for J6" },
+  "raw_text": "Lena Fischer\nMachine Learning Engineer, Munich\nlena.fischer@example.com\n\nSummary\nMachine learning engineer with 4 years of experience taking models from notebook to production.\n\nSkills\nPython, PyTorch, MLflow, AWS, Docker\n\nExperience\n\nMachine Learning Engineer at Feldwerk (2023 to 2026)\nTrained demand forecasting models in PyTorch for 2 thousand retail stores.\nTracked experiments and the model registry in MLflow.\nServed models on AWS SageMaker endpoints.\nContainerized training jobs with Docker.\n\nData Scientist at Ostbahn Analytics (2022 to 2023)\nBuilt churn models in Python.\n\nEducation\nMS Machine Learning, LMU Munich, 2022",
+  "extracted": {
+    "full_name": "Lena Fischer",
+    "headline": "Machine Learning Engineer",
+    "total_years_experience": 4.0,
+    "seniority": "mid",
+    "skills": [
+      { "name": "Python", "category": "language", "evidence": "Built churn models in Python.", "years": null, "verified": true },
+      { "name": "PyTorch", "category": "framework", "evidence": "Trained demand forecasting models in PyTorch for 2 thousand retail stores.", "years": null, "verified": true },
+      { "name": "MLflow", "category": "tool", "evidence": "Tracked experiments and the model registry in MLflow.", "years": null, "verified": true },
+      { "name": "AWS", "category": "cloud", "evidence": "Served models on AWS SageMaker endpoints.", "years": null, "verified": true },
+      { "name": "Docker", "category": "tool", "evidence": "Containerized training jobs with Docker.", "years": null, "verified": true }
+    ],
+    "roles": [
+      { "title": "Machine Learning Engineer", "company": "Feldwerk", "start": "2023", "end": "2026", "summary": "Owned forecasting models from training to serving.", "technologies": ["PyTorch", "MLflow", "AWS", "Docker"] },
+      { "title": "Data Scientist", "company": "Ostbahn Analytics", "start": "2022", "end": "2023", "summary": "Built churn models for transit customers.", "technologies": ["Python"] }
+    ],
+    "education": [{ "degree": "MS Machine Learning", "institution": "LMU Munich", "year": "2022" }]
+  }
+}

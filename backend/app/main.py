@@ -6,7 +6,7 @@ from fastapi import FastAPI, Request
 
 from app.db import init_db
 from app.logging import configure_logging
-from app.routers import health
+from app.routers import demo, health, jobs, resumes
 
 configure_logging()
 log = structlog.get_logger()
@@ -37,3 +37,6 @@ async def access_log(request: Request, call_next):
 
 
 app.include_router(health.router)
+app.include_router(resumes.router)
+app.include_router(jobs.router)
+app.include_router(demo.router)

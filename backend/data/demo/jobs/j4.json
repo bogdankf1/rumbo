@@ -1,0 +1,24 @@
+{
+  "meta": { "title": "Full-stack Engineer", "company": "Loop Studio" },
+  "raw_text": "Full-stack Engineer\nLoop Studio, Remote (US)\n\nAbout the role\nLoop Studio is a four-person team building collaboration tools for podcast producers.\n\nRequirements\nAt least 4 years of full-stack experience.\nFrontend product work in React.\nBackend services in Node.js.\nRelational data modeling with PostgreSQL.\n\nNice to have\nDeployment experience on AWS.\n\nResponsibilities\nShip features across the whole stack.\nTalk to users weekly and turn feedback into fixes.\nKeep the test suite trustworthy.",
+  "extracted": {
+    "title": "Full-stack Engineer",
+    "company": "Loop Studio",
+    "location": "Remote (US)",
+    "seniority": null,
+    "min_years_experience": 4.0,
+    "required_skills": [
+      { "name": "React", "evidence": "Frontend product work in React.", "verified": true },
+      { "name": "Node.js", "evidence": "Backend services in Node.js.", "verified": true },
+      { "name": "PostgreSQL", "evidence": "Relational data modeling with PostgreSQL.", "verified": true }
+    ],
+    "nice_to_have_skills": [
+      { "name": "AWS", "evidence": "Deployment experience on AWS.", "verified": true }
+    ],
+    "responsibilities": [
+      "Ship features across the whole stack.",
+      "Talk to users weekly and turn feedback into fixes.",
+      "Keep the test suite trustworthy."
+    ]
+  }
+}

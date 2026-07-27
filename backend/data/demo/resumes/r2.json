@@ -1,0 +1,23 @@
+{
+  "meta": { "name": "Diego Alvarez", "persona": "Backend Python; misses Kubernetes and Kafka for J2" },
+  "raw_text": "Diego Alvarez\nBackend Engineer, Austin TX\ndiego.alvarez@example.com\n\nSummary\nBackend engineer with 5 years of experience building healthcare and fintech APIs.\n\nSkills\nPython, FastAPI, PostgreSQL, Redis, Docker, AWS\n\nExperience\n\nBackend Engineer at Cardinal Fintech (2023 to 2026)\nDesigned and shipped payment APIs in Python and FastAPI handling 40 million requests a month.\nModeled ledger data in PostgreSQL with strict audit constraints.\nCut p95 latency in half with Redis caching on hot read paths.\nPackaged services with Docker and deployed them on AWS ECS.\n\nSoftware Engineer at Mesa Labs (2021 to 2023)\nBuilt lab report ingestion pipelines in Python.\nOwned the PostgreSQL schema for sample tracking.\n\nEducation\nBS Software Engineering, UT Austin, 2021",
+  "extracted": {
+    "full_name": "Diego Alvarez",
+    "headline": "Backend Engineer",
+    "total_years_experience": 5.0,
+    "seniority": "senior",
+    "skills": [
+      { "name": "Python", "category": "language", "evidence": "Designed and shipped payment APIs in Python and FastAPI handling 40 million requests a month.", "years": null, "verified": true },
+      { "name": "FastAPI", "category": "framework", "evidence": "Designed and shipped payment APIs in Python and FastAPI handling 40 million requests a month.", "years": null, "verified": true },
+      { "name": "PostgreSQL", "category": "database", "evidence": "Modeled ledger data in PostgreSQL with strict audit constraints.", "years": null, "verified": true },
+      { "name": "Redis", "category": "database", "evidence": "Cut p95 latency in half with Redis caching on hot read paths.", "years": null, "verified": true },
+      { "name": "Docker", "category": "tool", "evidence": "Packaged services with Docker and deployed them on AWS ECS.", "years": null, "verified": true },
+      { "name": "AWS", "category": "cloud", "evidence": "Packaged services with Docker and deployed them on AWS ECS.", "years": null, "verified": true }
+    ],
+    "roles": [
+      { "title": "Backend Engineer", "company": "Cardinal Fintech", "start": "2023", "end": "2026", "summary": "Designed payment APIs and owned ledger data modeling.", "technologies": ["Python", "FastAPI", "PostgreSQL", "Redis", "Docker", "AWS"] },
+      { "title": "Software Engineer", "company": "Mesa Labs", "start": "2021", "end": "2023", "summary": "Built lab report ingestion pipelines and owned the sample tracking schema.", "technologies": ["Python", "PostgreSQL"] }
+    ],
+    "education": [{ "degree": "BS Software Engineering", "institution": "UT Austin", "year": "2021" }]
+  }
+}

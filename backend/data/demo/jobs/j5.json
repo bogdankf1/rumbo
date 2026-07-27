@@ -1,0 +1,25 @@
+{
+  "meta": { "title": "Platform Engineer", "company": "Volta Cloud" },
+  "raw_text": "Platform Engineer\nVolta Cloud, Dublin\n\nAbout the role\nVolta Cloud runs managed infrastructure for energy companies. You will build the paved road other teams deploy on.\n\nRequirements\nAt least 6 years of infrastructure or platform experience.\nDeep operational experience with Kubernetes.\nSystems programming in Go.\nInfrastructure as code with Terraform.\nProduction operations on AWS.\n\nNice to have\nMonitoring and alerting with Prometheus.\n\nResponsibilities\nDesign the internal deployment platform.\nSet reliability standards and error budgets.\nRun infrastructure reviews with product teams.",
+  "extracted": {
+    "title": "Platform Engineer",
+    "company": "Volta Cloud",
+    "location": "Dublin",
+    "seniority": null,
+    "min_years_experience": 6.0,
+    "required_skills": [
+      { "name": "Kubernetes", "evidence": "Deep operational experience with Kubernetes.", "verified": true },
+      { "name": "Go", "evidence": "Systems programming in Go.", "verified": true },
+      { "name": "Terraform", "evidence": "Infrastructure as code with Terraform.", "verified": true },
+      { "name": "AWS", "evidence": "Production operations on AWS.", "verified": true }
+    ],
+    "nice_to_have_skills": [
+      { "name": "Prometheus", "evidence": "Monitoring and alerting with Prometheus.", "verified": true }
+    ],
+    "responsibilities": [
+      "Design the internal deployment platform.",
+      "Set reliability standards and error budgets.",
+      "Run infrastructure reviews with product teams."
+    ]
+  }
+}

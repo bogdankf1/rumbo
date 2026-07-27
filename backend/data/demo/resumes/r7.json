@@ -1,0 +1,22 @@
+{
+  "meta": { "name": "Tom Okafor", "persona": "Mobile engineer; decent partial fits against web roles" },
+  "raw_text": "Tom Okafor\nMobile Engineer, London\ntom.okafor@example.com\n\nSummary\nMobile engineer with 5 years of experience shipping consumer apps on both platforms.\n\nSkills\nReact Native, TypeScript, Swift, JavaScript, GraphQL\n\nExperience\n\nSenior Mobile Engineer at Wander (2022 to 2026)\nLed the React Native rewrite of the travel planner used by 1.2 million people.\nTyped the shared codebase end to end in TypeScript.\nBuilt native camera and offline modules in Swift.\nConsumed the trip GraphQL API and owned its mobile schema.\n\nMobile Developer at Piccadilly Apps (2021 to 2022)\nShipped JavaScript bridges and app store releases.\n\nEducation\nBSc Computer Science, University of Manchester, 2021",
+  "extracted": {
+    "full_name": "Tom Okafor",
+    "headline": "Mobile Engineer",
+    "total_years_experience": 5.0,
+    "seniority": "senior",
+    "skills": [
+      { "name": "React Native", "category": "framework", "evidence": "Led the React Native rewrite of the travel planner used by 1.2 million people.", "years": null, "verified": true },
+      { "name": "TypeScript", "category": "language", "evidence": "Typed the shared codebase end to end in TypeScript.", "years": null, "verified": true },
+      { "name": "Swift", "category": "language", "evidence": "Built native camera and offline modules in Swift.", "years": null, "verified": true },
+      { "name": "JavaScript", "category": "language", "evidence": "Shipped JavaScript bridges and app store releases.", "years": null, "verified": true },
+      { "name": "GraphQL", "category": "tool", "evidence": "Consumed the trip GraphQL API and owned its mobile schema.", "years": null, "verified": true }
+    ],
+    "roles": [
+      { "title": "Senior Mobile Engineer", "company": "Wander", "start": "2022", "end": "2026", "summary": "Led the React Native rewrite of a travel planning app.", "technologies": ["React Native", "TypeScript", "Swift", "GraphQL"] },
+      { "title": "Mobile Developer", "company": "Piccadilly Apps", "start": "2021", "end": "2022", "summary": "Shipped app releases and native bridges.", "technologies": ["JavaScript"] }
+    ],
+    "education": [{ "degree": "BSc Computer Science", "institution": "University of Manchester", "year": "2021" }]
+  }
+}

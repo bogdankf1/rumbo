@@ -1,0 +1,25 @@
+{
+  "meta": { "title": "Data Platform Engineer", "company": "Meridian Analytics" },
+  "raw_text": "Data Platform Engineer\nMeridian Analytics, Amsterdam\n\nAbout the role\nMeridian turns retail telemetry into forecasts. You will keep the data platform fast and trustworthy.\n\nRequirements\nAt least 5 years of data engineering experience.\nProduction experience with Spark at terabyte scale.\nWorkflow orchestration with Airflow.\nStream processing experience with Kafka.\nComfort running data infrastructure on AWS.\n\nNice to have\nInfrastructure as code with Terraform.\n\nResponsibilities\nOwn the ingestion pipelines end to end.\nKeep warehouse costs predictable.\nPartner with analysts on data contracts.",
+  "extracted": {
+    "title": "Data Platform Engineer",
+    "company": "Meridian Analytics",
+    "location": "Amsterdam",
+    "seniority": null,
+    "min_years_experience": 5.0,
+    "required_skills": [
+      { "name": "Spark", "evidence": "Production experience with Spark at terabyte scale.", "verified": true },
+      { "name": "Airflow", "evidence": "Workflow orchestration with Airflow.", "verified": true },
+      { "name": "Kafka", "evidence": "Stream processing experience with Kafka.", "verified": true },
+      { "name": "AWS", "evidence": "Comfort running data infrastructure on AWS.", "verified": true }
+    ],
+    "nice_to_have_skills": [
+      { "name": "Terraform", "evidence": "Infrastructure as code with Terraform.", "verified": true }
+    ],
+    "responsibilities": [
+      "Own the ingestion pipelines end to end.",
+      "Keep warehouse costs predictable.",
+      "Partner with analysts on data contracts."
+    ]
+  }
+}
