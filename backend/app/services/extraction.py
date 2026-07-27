@@ -98,6 +98,9 @@ job description text (the requirement line where the skill appears). Never parap
 - required_skills: skills the posting demands ("must have", "required", "you have", "strong \
 experience with"). nice_to_have_skills: explicitly optional ones ("nice to have", "bonus", \
 "a plus", "preferred").
+- Skills are concrete technologies, tools, frameworks, and engineering practices only. \
+Degree or education requirements, years of experience, soft skills, and personality traits \
+are not skills; never put them in the skill lists.
 - min_years_experience: only when the posting states a number of years; otherwise null.
 - responsibilities: the main duties, short verbatim-ish phrases.
 

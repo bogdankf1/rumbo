@@ -1,10 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import ReactMarkdown from "react-markdown";
 import type { Citation } from "@/lib/types";
 import type { UiMessage } from "./Chat";
 
-function ContentWithCitations({
+function AssistantMarkdown({
   content,
   citations,
   onOpen,
@@ -15,27 +16,51 @@ function ContentWithCitations({
 }) {
   const byId = new Map(citations.map((c) => [c.id, c] as const));
   const numbers = new Map(citations.map((c, i) => [c.id, i + 1] as const));
-  const parts = content.split(/(\[E\d+\])/g);
+  // Citation markers become links so the markdown renderer carries them
+  // through paragraphs and bullets; the link component renders the chip.
+  const md = content.replace(/\[(E\d+)\]/g, (_m, id) => `[${id}](#cite-${id})`);
 
   return (
-    <>
-      {parts.map((part, i) => {
-        const marker = part.match(/^\[(E\d+)\]$/);
-        if (!marker) return <span key={i}>{part}</span>;
-        const citation = byId.get(marker[1]);
-        if (!citation) return null;
-        return (
-          <button
-            key={i}
-            onClick={() => onOpen(citation)}
-            className="mx-0.5 inline-flex h-4 min-w-4 -translate-y-1 items-center justify-center rounded-full bg-accent/20 px-1 font-mono text-[10px] text-accent transition hover:bg-accent/40"
-            aria-label={`Show source ${numbers.get(citation.id)}`}
-          >
-            {numbers.get(citation.id)}
-          </button>
-        );
-      })}
-    </>
+    <ReactMarkdown
+      components={{
+        a: ({ href, children }) => {
+          const id = href?.startsWith("#cite-")
+            ? href.slice("#cite-".length)
+            : null;
+          const citation = id ? byId.get(id) : undefined;
+          if (!citation) return null; // marker still streaming in, or a stray link
+          return (
+            <button
+              onClick={() => onOpen(citation)}
+              aria-label={`Show source ${numbers.get(citation.id)}`}
+              className="mx-0.5 inline-flex h-4 min-w-4 -translate-y-1 items-center justify-center rounded-full bg-accent/20 px-1 font-mono text-[10px] not-italic text-accent transition hover:bg-accent/40"
+            >
+              {numbers.get(citation.id)}
+            </button>
+          );
+        },
+        p: ({ children }) => <p className="mb-2.5 last:mb-0">{children}</p>,
+        ul: ({ children }) => (
+          <ul className="mb-2.5 space-y-1.5 last:mb-0">{children}</ul>
+        ),
+        ol: ({ children }) => (
+          <ol className="mb-2.5 list-decimal space-y-1.5 pl-5 last:mb-0">
+            {children}
+          </ol>
+        ),
+        li: ({ children }) => (
+          <li className="relative pl-4 before:absolute before:left-0 before:text-faint before:content-['-']">
+            {children}
+          </li>
+        ),
+        strong: ({ children }) => (
+          <strong className="font-semibold text-ink">{children}</strong>
+        ),
+        em: ({ children }) => <em className="italic">{children}</em>,
+      }}
+    >
+      {md}
+    </ReactMarkdown>
   );
 }
 
@@ -60,11 +85,11 @@ export function MessageBubble({ message }: { message: UiMessage }) {
         </span>
       )}
       <div
-        className={`whitespace-pre-wrap text-[15px] leading-relaxed ${
+        className={`text-[15px] leading-relaxed ${
           message.streaming ? "stream-caret" : ""
         }`}
       >
-        <ContentWithCitations
+        <AssistantMarkdown
           content={message.content}
           citations={message.citations}
           onOpen={(c) => setOpen((prev) => (prev?.id === c.id ? null : c))}

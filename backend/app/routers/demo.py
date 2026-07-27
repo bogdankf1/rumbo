@@ -1,4 +1,5 @@
 import json
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import structlog
@@ -27,6 +28,9 @@ async def load_demo(session: AsyncSession = Depends(get_session)) -> dict:
     for table in (ChatMessage, Chunk, JobDescription, Resume):
         await session.execute(delete(table))
 
+    # Explicit, strictly increasing timestamps: rows inserted in one transaction
+    # would otherwise share now() and the sidebar order would not be stable.
+    base = datetime.now(timezone.utc)
     resumes = _load("resumes")
     for i, doc in enumerate(resumes):
         extracted = doc["extracted"]
@@ -36,6 +40,7 @@ async def load_demo(session: AsyncSession = Depends(get_session)) -> dict:
             raw_text=doc["raw_text"],
             extracted=extracted,
             is_active=i == 0,
+            created_at=base + timedelta(milliseconds=i),
         )
         session.add(resume)
         await session.flush()

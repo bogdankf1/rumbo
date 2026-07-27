@@ -11,10 +11,12 @@ export function JobCard({ job, onDelete }: { job: Job; onDelete: () => void }) {
 
   return (
     <div
-      className="group relative cursor-pointer rounded-lg border border-line bg-surface p-3 transition hover:border-faint"
+      className={`group cursor-pointer rounded-lg border bg-surface p-3 transition ${
+        open ? "border-accent/40" : "border-line hover:border-faint"
+      }`}
       onClick={() => setOpen((v) => !v)}
     >
-      <div className="flex items-center gap-3">
+      <div className="flex items-start gap-3">
         <div className="min-w-0 flex-1">
           <p className="text-sm font-medium">
             <span className="mr-1.5 font-mono text-xs text-faint">#{job.seq}</span>
@@ -27,10 +29,30 @@ export function JobCard({ job, onDelete }: { job: Job; onDelete: () => void }) {
               style={{ color: verdictColor(fit.score) }}
             >
               {fit.verdict}
+              <span
+                className={`ml-1.5 inline-block text-faint transition-transform ${
+                  open ? "rotate-180" : ""
+                }`}
+              >
+                &#9662;
+              </span>
             </p>
           )}
         </div>
-        {fit && <ScoreRing score={fit.score} />}
+        {/* Delete sits in flow above the ring so the two never overlap. */}
+        <div className="flex shrink-0 flex-col items-end gap-1">
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              onDelete();
+            }}
+            aria-label={`Delete ${job.title}`}
+            className="flex h-5 w-5 items-center justify-center rounded-full text-faint opacity-0 transition hover:bg-weak/20 hover:text-weak group-hover:opacity-100"
+          >
+            &times;
+          </button>
+          {fit && <ScoreRing score={fit.score} />}
+        </div>
       </div>
 
       {open && fit && (
@@ -58,17 +80,6 @@ export function JobCard({ job, onDelete }: { job: Job; onDelete: () => void }) {
           </p>
         </div>
       )}
-
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          onDelete();
-        }}
-        aria-label={`Delete ${job.title}`}
-        className="absolute right-2 top-2 hidden text-faint hover:text-weak group-hover:block"
-      >
-        &times;
-      </button>
     </div>
   );
 }

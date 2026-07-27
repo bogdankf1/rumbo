@@ -3,17 +3,17 @@
 @theme {
   --color-bg: #141110;
   --color-surface: #1c1917;
-  --color-raised: #242019;
-  --color-line: #2e2823;
-  --color-ink: #ede8e3;
-  --color-muted: #a8a29e;
-  --color-faint: #6f6862;
-  --color-accent: #c2704e;
-  --color-amber: #d99a4e;
-  --color-strong: #8fae7c;
-  --color-good: #d99a4e;
-  --color-partial: #c2704e;
-  --color-weak: #a3524a;
+  --color-raised: #262019;
+  --color-line: #332c26;
+  --color-ink: #f0ebe4;
+  --color-muted: #b6afa7;
+  --color-faint: #8a8178;
+  --color-accent: #d98a63;
+  --color-amber: #e2a860;
+  --color-strong: #9dc186;
+  --color-good: #e2b366;
+  --color-partial: #d98a63;
+  --color-weak: #d1705f;
 
   --font-display: var(--font-fraunces), Georgia, serif;
   --font-body: var(--font-instrument), system-ui, sans-serif;
@@ -22,6 +22,30 @@
 
 ::selection {
   background: color-mix(in srgb, var(--color-accent) 40%, transparent);
+}
+
+/* Thin, theme-colored scrollbars everywhere. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-line) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-line);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-faint);
 }
 
 @keyframes fade-up {

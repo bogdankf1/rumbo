@@ -1,5 +1,6 @@
 import uuid
 
+import structlog
 from fastapi import APIRouter, Depends, HTTPException, UploadFile
 from sqlalchemy import select, update
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -10,6 +11,7 @@ from app.schemas import ResumeOut
 from app.services.ingestion import delete_owned_chunks, ingest_resume
 from app.services.pdf import PdfParseError
 
+log = structlog.get_logger()
 router = APIRouter(prefix="/api/resumes", tags=["resumes"])
 
 
@@ -20,11 +22,20 @@ async def upload(file: UploadFile, session: AsyncSession = Depends(get_session))
         return await ingest_resume(session, file.filename, data)
     except PdfParseError as exc:
         raise HTTPException(status_code=422, detail=str(exc))
+    except Exception as exc:
+        log.exception("resume_ingest_failed")
+        raise HTTPException(
+            status_code=502, detail=f"Could not process the resume: {exc}"
+        ) from exc
 
 
 @router.get("", response_model=list[ResumeOut])
 async def list_resumes(session: AsyncSession = Depends(get_session)):
-    rows = (await session.execute(select(Resume).order_by(Resume.created_at))).scalars()
+    # Secondary sort on id: demo rows can share a created_at, and ties must
+    # never reshuffle after activation updates.
+    rows = (
+        await session.execute(select(Resume).order_by(Resume.created_at, Resume.id))
+    ).scalars()
     return list(rows)
 
 

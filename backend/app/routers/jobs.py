@@ -1,5 +1,6 @@
 import uuid
 
+import structlog
 from fastapi import APIRouter, Depends, HTTPException, Request
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -12,6 +13,7 @@ from app.services.ingestion import delete_owned_chunks, ingest_job
 from app.services.matching import match
 from app.services.pdf import PdfParseError, extract_text
 
+log = structlog.get_logger()
 router = APIRouter(prefix="/api/jobs", tags=["jobs"])
 
 
@@ -44,12 +46,22 @@ async def create_job(request: Request, session: AsyncSession = Depends(get_sessi
             text = extract_text(data)
         except PdfParseError as exc:
             raise HTTPException(status_code=422, detail=str(exc))
-        job = await ingest_job(session, "pdf", text, filename=file.filename)
+        source, filename, title_hint = "pdf", file.filename, None
     else:
         body = JobCreateText.model_validate(await request.json())
         if not body.text.strip():
             raise HTTPException(status_code=422, detail="text is required")
-        job = await ingest_job(session, "text", body.text, title_hint=body.title)
+        source, filename, title_hint = "text", None, body.title
+        text = body.text
+    try:
+        job = await ingest_job(
+            session, source, text, filename=filename, title_hint=title_hint
+        )
+    except Exception as exc:
+        log.exception("job_ingest_failed")
+        raise HTTPException(
+            status_code=502, detail=f"Could not process the posting: {exc}"
+        ) from exc
     return job_out(job, await active_resume(session))
 
 
