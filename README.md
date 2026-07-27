@@ -21,7 +21,7 @@ Local development (Postgres in Docker, servers on the host):
 make dev-db          # pgvector on host port 5433
 make dev-backend     # FastAPI with reload on :8000 (needs uv)
 make dev-frontend    # Next.js on :3000
-make test            # pytest (35 tests, no API keys needed)
+make test            # pytest (34 tests, no API keys needed)
 make eval            # 13-case deterministic eval suite (calls both APIs)
 ```
 

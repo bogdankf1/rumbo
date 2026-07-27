@@ -4,7 +4,7 @@ up:
 	docker compose up --build
 
 dev-db:
-	docker compose up -d db
+	docker compose up -d --wait db
 
 dev-backend:
 	cd backend && uv run uvicorn app.main:app --reload --port 8000
@@ -12,7 +12,7 @@ dev-backend:
 dev-frontend:
 	cd frontend && npm run dev
 
-test:
+test: dev-db
 	cd backend && uv run pytest -q
 
 eval:
