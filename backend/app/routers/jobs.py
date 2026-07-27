@@ -7,7 +7,9 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.db import get_session
 from app.models import JobDescription, Resume
 from app.schemas import JobCreateText, JobOut
+from app.services.extraction import JDExtract, ResumeExtract
 from app.services.ingestion import delete_owned_chunks, ingest_job
+from app.services.matching import match
 from app.services.pdf import PdfParseError, extract_text
 
 router = APIRouter(prefix="/api/jobs", tags=["jobs"])
@@ -21,7 +23,11 @@ async def active_resume(session: AsyncSession) -> Resume | None:
 
 def job_out(job: JobDescription, resume: Resume | None) -> JobOut:
     out = JobOut.model_validate(job)
-    out.fit = None  # replaced by the match engine in slice 2
+    if resume is not None:
+        out.fit = match(
+            ResumeExtract.model_validate(resume.extracted),
+            JDExtract.model_validate(job.extracted),
+        ).model_dump()
     return out
 
 
