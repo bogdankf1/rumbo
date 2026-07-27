@@ -155,7 +155,7 @@ Adjacent skills (candidate has React, JD wants Vue) never count toward the score
 3. **Generate.** Every evidence item gets an id (`E1`, `E2`, ...). The generation call receives the last 10 chat messages as conversation history plus the evidence pack, and Claude streams the answer with instructions to ground every factual claim in the pack and mark citations inline as `[E3]`. The server maps markers back to `{doc, quote}` pairs.
 4. **Persist.** Both messages stored with intent and citations.
 
-**SSE protocol:** `delta` (text tokens), `citations` (final array), `refusal`, `done` (message id), `error`.
+**SSE protocol:** `router` (resolved intent and job refs, also consumed by the evals), `delta` (text tokens), `citations` (final array), `refusal`, `done` (message id plus eval metadata), `error`.
 
 Model usage notes: `claude-opus-5` for both the router and generation (thinking is on by default; router runs with `effort: low` for latency, generation at the default). Sampling parameters are not accepted on this model, so eval determinism comes from structural assertions, not temperature pinning. `stop_reason: refusal` is handled with a graceful error event (career documents will not realistically trigger it, but the branch exists).
 

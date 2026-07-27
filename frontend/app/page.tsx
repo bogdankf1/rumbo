@@ -13,6 +13,7 @@ export default function Home() {
   const [jobs, setJobs] = useState<Job[]>([]);
   const [demoLoading, setDemoLoading] = useState(false);
   const [loaded, setLoaded] = useState(false);
+  const [chatEpoch, setChatEpoch] = useState(0);
 
   const refresh = useCallback(async () => {
     const [r, j] = await Promise.all([api.listResumes(), api.listJobs()]);
@@ -30,6 +31,7 @@ export default function Home() {
     try {
       await api.loadDemo();
       await refresh();
+      setChatEpoch((n) => n + 1); // demo wipes chat history; remount the chat
     } finally {
       setDemoLoading(false);
     }
@@ -64,7 +66,7 @@ export default function Home() {
           {loaded && !hasDocs ? (
             <EmptyState onLoadDemo={loadDemo} demoLoading={demoLoading} />
           ) : (
-            <Chat />
+            <Chat key={chatEpoch} />
           )}
         </main>
       </div>
