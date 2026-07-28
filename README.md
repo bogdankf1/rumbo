@@ -186,12 +186,13 @@ What I cut on purpose: auth logic, migrations, job queues, complete e2e suites, 
 
 Factual record: this project was built with Claude Code in a spec-driven workflow. The model first produced `SPEC.md` from my brief and my answers to its clarifying questions; I reviewed and approved it before any code existed. It then wrote an implementation plan (committed in `docs/plans/`) and executed it in vertical slices, with unit tests, the eval suite, and live browser verification as gates at every slice boundary. I tested the running product myself between rounds and fed back bugs (upload proxy timeouts, sidebar reordering, streaming buffering), which were reproduced, root-caused, and fixed with regression checks.
 
-<!-- TODO(bohdan): write in your own words. The assignment explicitly asks for YOUR
-     thoughts here: how you keep AI-generated code to your standards, what you
-     delegate vs write yourself, your do's and don'ts with coding assistants,
-     and how you make the process repeatable. -->
-> _TODO: my do's and don'ts with AI coding assistants, in my own words._
-<!-- /TODO -->
+The most important thing to describe is the way I treat AI: it is a strong assistant, executor, and double-checker, but not the decision taker. Every product decision was made by me, and I was in the loop the whole time, deciding how we should do the work, what we should leave out of scope, and what should be done first. After each round I did several rounds of testing, changed the things I disliked, and repeated the process. So we are talking about a human-in-the-loop pattern.
+
+My gates are primarily green eval and test suites, testing the deterministic and non-deterministic logic appropriately, plus manual QA each round and cross-checks with separate agents against the initial requirements and the living spec.
+
+For repeatability: the general approach is documented in CLAUDE.md, and repeated logic can move into custom skills when needed. General app behavior is pinned by the eval suite instead of relying on the model's own representation of it. Spec-driven development (SDD) is the standard, where the spec is treated as a living source of truth, not an initial document.
+
+My don'ts: the decision-making process, README sections that contain my own thoughts (like this one), and security-sensitive audits.
 
 ## Key decisions and trade-offs
 
@@ -205,9 +206,9 @@ Factual record: this project was built with Claude Code in a spec-driven workflo
 | Next.js route-handler proxy instead of rewrites | Rewrites buffered SSE and timed out 30s+ uploads; the handler streams both ways |
 | `create_all` at startup, no migrations | Right for a single-user demo; Alembic is the production path |
 
-<!-- TODO(bohdan): write in your own words -->
-> _TODO: my reasoning on the stack choice (FastAPI + Next.js + pgvector) and the two-vendor split._
-<!-- /TODO -->
+The main point was to reuse the stack I am proficient with and usually build with, to reduce the potential amount of unexpected issues, and because these are a modern and solid choice for this type of work. FastAPI over Node because the LLM tooling lives in Python; pgvector as the database choice because it allows one database for both relational and vector data, and a dedicated vector DB here would be over-engineering; Next.js for the reasons mentioned at the beginning plus SSE streaming, and the UI/UX experience with it is great as well. Overall this stack was the fastest and most efficient way for me to focus on delivering the work itself rather than experimenting with a Rust backend or additional database complexity.
+
+The OpenAI and Anthropic vendor split has two reasons. My take is that these two are the most important players in the AI world right now, and it is great to be able to work with both of them and not depend on one certain vendor. The second is essentially non-negotiable: Anthropic does not provide an embeddings API. Two potential failure modes are an accepted trade-off, which can also be treated as an advantage: in the future we may have an orchestrator to plug both providers in and out in case of downtime.
 
 ## Productionization path
 
@@ -219,9 +220,7 @@ Single-user by design; the path to production is understood and deliberately not
 - **Resilience**: per-vendor circuit breakers and model fallback (Opus to Sonnet) on overload; replayable extraction jobs; rate limiting.
 - **AWS shape**: ECS Fargate services behind an ALB, RDS Postgres with pgvector, secrets in Secrets Manager, CloudWatch structured logs (the app already logs JSON). The same shape maps to GCP (Cloud Run + Cloud SQL) or Azure (Container Apps + Flexible Server).
 
-<!-- TODO(bohdan): write in your own words -->
-> _TODO: how I would take this to production, in my own words._
-<!-- /TODO -->
+For production I would think in several patterns. First, guard against any potential bad scenarios: security tightening, rate limiting, auth for the users, so no anonymous users might abuse our system. Then increasing observability: Sentry, Datadog, logs, and alerts set up properly. Then the focus moves to quality: test coverage, verification, more scenarios covered including edge cases, and different kinds of testing like stress and load testing. For heavy operations we would need queues for extraction to handle scenarios with a potentially blocked main thread. The infra (AWS) work would require a dedicated session of course, to plan out a proper infra system design for compute, storage, and network. I would say one of the most important things here is observability: things will break, no doubt. Our goal is to be able to detect what broke, when, and why.
 
 ## Roadmap: what I would build next
 
@@ -236,6 +235,4 @@ Each of these fell out of building or testing the current version, not out of a 
 7. **Retrieval re-ranking**: cross-encoder or LLM re-rank on narrative retrieval, adopted only if it beats the current setup on an expanded eval suite.
 8. **Multi-resume comparison matrix**: any resume against any job in one view; the match engine already computes it, this is UI.
 
-<!-- TODO(bohdan): write in your own words -->
-> _TODO: my own priorities with more time._
-<!-- /TODO -->
+Aside from what I have mentioned as pre-production preparations, I would lean towards parsing JDs by URL, the interview prep feature (adding a flow that automatically fills the list of gaps from a certain JD, so it becomes clear how and what should be done to prepare for this job), and, mentioning it again on purpose: support for async ingestion plus more formats and file sizes for JDs and CVs, so it can run in the background for a batch of files.
