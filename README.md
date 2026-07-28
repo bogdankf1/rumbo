@@ -41,9 +41,7 @@ This is a two-document-type, cross-comparison problem, not a single corpus with 
 2. **Deterministic matching**: fit scores and gaps are plain set logic over canonical skill names. Reproducible, unit-tested, explainable; the LLM never touches the numbers.
 3. **Embeddings only where they belong**: narrative questions retrieve chunks via pgvector; skill matching never does.
 
-<!-- TODO(bohdan): write in your own words -->
-> _TODO: my reasoning for choosing this assignment option and this hybrid design._
-<!-- /TODO -->
+I personally love to build things I would use myself, and that is why the fourth option caught my interest. At first it seemed like a standard RAG task, but once I started checking it out, I found that embedding similarity might lie about skill identity. That led me to the idea that I would need a routed hybrid: deterministic where facts live, LLM where language lives, embeddings only for the general narrative. One of the crucial rules here was to trace everything to a quoted source line, so nothing that came from the AI output would be fictional or invented.
 
 ## Architecture
 
@@ -108,7 +106,7 @@ sequenceDiagram
     A-->>U: event: done {deterministic meta for evals}
 ```
 
-Full data model and API contract: [SPEC.md](SPEC.md). The spec was written and approved before any code; the implementation plan lives in [docs/superpowers/plans](docs/superpowers/plans).
+Full data model and API contract: [SPEC.md](SPEC.md). The spec was written and approved before any code; the implementation plan lives in [docs/plans](docs/plans).
 
 ## RAG and LLM approach
 
@@ -180,13 +178,13 @@ Followed here:
 
 Consciously skipped for the timebox (all documented in the productionization path): auth, DB migrations, ingestion job queues, ANN indexes, browser-level e2e tests, rate limiting.
 
-<!-- TODO(bohdan): write in your own words -->
-> _TODO: my personal take on which standards matter most and why I cut what I cut._
-<!-- /TODO -->
+For me personally there are several key points that are very important, and I have tried my best to demonstrate them here: simplicity, security, responsiveness, efficiency, guardrails, and standardized AI approaches. Simplicity stands for making an app as clever as it should be while keeping it as simple as it can be. My take is that we do not need 10 levels of abstraction where 1 or 2 do just fine. Security is pretty obvious: even in an app that serves a demo purpose we need to maintain a standardized approach with no leakage, no hardcoded API keys, everything audited. Efficiency: we need to leverage powerful instruments (for example LLM models) where it is necessary, specifically where they buy quality, like extraction or response generation in our workflow. Anything that can be done deterministically should be done that way. It might seem unclear now, but during scaling it will help us drastically. Guardrails and standards for AI are non-negotiable now and deserve their own topic; they are covered in the RAG and LLM approach section above. And observability as a general rule: for me it is way more stable to create such structure beforehand (tracking request timing, logging things properly) rather than urgently trying to bolt it on after an incident, so for me it is already the go-to option.
+
+What I cut on purpose: auth logic, migrations, job queues, complete e2e suites, rate limiting. All of these are nice-to-haves, definitely, but I stand on the principle that simple and stable is better than overengineered without a request or a purpose.
 
 ## How AI tools were used
 
-Factual record: this project was built with Claude Code in a spec-driven workflow. The model first produced `SPEC.md` from my brief and my answers to its clarifying questions; I reviewed and approved it before any code existed. It then wrote an implementation plan (committed in `docs/superpowers/plans/`) and executed it in vertical slices, with unit tests, the eval suite, and live browser verification as gates at every slice boundary. I tested the running product myself between rounds and fed back bugs (upload proxy timeouts, sidebar reordering, streaming buffering), which were reproduced, root-caused, and fixed with regression checks.
+Factual record: this project was built with Claude Code in a spec-driven workflow. The model first produced `SPEC.md` from my brief and my answers to its clarifying questions; I reviewed and approved it before any code existed. It then wrote an implementation plan (committed in `docs/plans/`) and executed it in vertical slices, with unit tests, the eval suite, and live browser verification as gates at every slice boundary. I tested the running product myself between rounds and fed back bugs (upload proxy timeouts, sidebar reordering, streaming buffering), which were reproduced, root-caused, and fixed with regression checks.
 
 <!-- TODO(bohdan): write in your own words. The assignment explicitly asks for YOUR
      thoughts here: how you keep AI-generated code to your standards, what you
