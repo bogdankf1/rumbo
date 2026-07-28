@@ -42,7 +42,7 @@ export function Composer({
             ))}
           </div>
         )}
-        <div className="flex items-end gap-3 rounded-xl border border-line bg-surface px-4 py-3 transition focus-within:border-accent/50">
+        <div className="flex items-center gap-3 rounded-xl border border-line bg-surface px-4 py-3 transition focus-within:border-accent/50">
           <textarea
             value={text}
             onChange={(e) => setText(e.target.value)}
