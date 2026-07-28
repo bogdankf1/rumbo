@@ -27,7 +27,7 @@ export function Composer({
   }
 
   return (
-    <div className="border-t border-line px-6 py-4">
+    <div className="border-t border-line px-4 py-4 sm:px-6">
       <div className="mx-auto max-w-2xl">
         {empty && (
           <div className="mb-3 flex flex-wrap justify-center gap-2">

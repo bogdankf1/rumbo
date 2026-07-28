@@ -11,7 +11,7 @@ export function MessageList({ messages }: { messages: UiMessage[] }) {
   }, [messages]);
 
   return (
-    <div className="flex-1 overflow-y-auto px-6 py-6">
+    <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
       <div className="mx-auto max-w-2xl space-y-6">
         {messages.length === 0 && (
           <div className="fade-up pt-16 text-center">

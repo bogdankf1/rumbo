@@ -29,7 +29,7 @@ export function Sidebar({
   const [pasteOpen, setPasteOpen] = useState(false);
 
   return (
-    <aside className="flex w-84 shrink-0 flex-col gap-6 overflow-y-auto border-r border-line bg-surface/60 p-4">
+    <aside className="flex h-full w-80 max-w-[85vw] shrink-0 flex-col gap-6 overflow-y-auto border-r border-line bg-surface p-4 lg:w-84 lg:bg-surface/60">
       <section>
         <h2 className="mb-2 text-[10px] uppercase tracking-[0.25em] text-faint">
           Resume

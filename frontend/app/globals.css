@@ -20,6 +20,24 @@
   --font-mono: var(--font-jetbrains), monospace;
 }
 
+/* Light theme: warm paper. Every component uses semantic tokens, so
+   swapping the variables restyles the whole app. */
+:root[data-theme="light"] {
+  --color-bg: #f4efe7;
+  --color-surface: #fbf8f2;
+  --color-raised: #ece4d6;
+  --color-line: #d9cfc0;
+  --color-ink: #262019;
+  --color-muted: #6d6459;
+  --color-faint: #99897a;
+  --color-accent: #b05730;
+  --color-amber: #9c721f;
+  --color-strong: #567a3f;
+  --color-good: #9c721f;
+  --color-partial: #b05730;
+  --color-weak: #ad4437;
+}
+
 ::selection {
   background: color-mix(in srgb, var(--color-accent) 40%, transparent);
 }

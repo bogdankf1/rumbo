@@ -14,6 +14,7 @@ export default function Home() {
   const [demoLoading, setDemoLoading] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [chatEpoch, setChatEpoch] = useState(0);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const refresh = useCallback(async () => {
     const [r, j] = await Promise.all([api.listResumes(), api.listJobs()]);
@@ -41,9 +42,25 @@ export default function Home() {
 
   return (
     <div className="flex h-screen flex-col">
-      <TopBar onLoadDemo={loadDemo} demoLoading={demoLoading} hasDocs={hasDocs} />
-      <div className="flex min-h-0 flex-1">
-        <Sidebar
+      <TopBar
+        onLoadDemo={loadDemo}
+        demoLoading={demoLoading}
+        hasDocs={hasDocs}
+        onToggleSidebar={() => setSidebarOpen((v) => !v)}
+      />
+      <div className="relative flex min-h-0 flex-1">
+        {sidebarOpen && (
+          <div
+            className="fixed inset-0 z-30 bg-black/50 lg:hidden"
+            onClick={() => setSidebarOpen(false)}
+          />
+        )}
+        <div
+          className={`fixed inset-y-0 left-0 z-40 h-full transition-transform duration-200 lg:static lg:z-auto lg:h-auto lg:translate-x-0 lg:transition-none ${
+            sidebarOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
+        >
+          <Sidebar
           resumes={resumes}
           jobs={jobs}
           onUploadResume={async (f) => {
@@ -61,7 +78,8 @@ export default function Home() {
           onActivate={(id) => api.activateResume(id).then(refresh)}
           onDeleteResume={(id) => api.deleteResume(id).then(refresh)}
           onDeleteJob={(id) => api.deleteJob(id).then(refresh)}
-        />
+          />
+        </div>
         <main className="min-w-0 flex-1">
           {loaded && !hasDocs ? (
             <EmptyState onLoadDemo={loadDemo} demoLoading={demoLoading} />

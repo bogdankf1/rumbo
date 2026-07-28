@@ -1,0 +1,50 @@
+# The eval suite exercises the real chat pipeline (Claude + OpenAI calls),
+# so it costs money and needs repo secrets. It runs on demand, not per PR:
+# unit tests guard every push cheaply; evals guard behavior when you ask.
+# Requires repository secrets ANTHROPIC_API_KEY and OPENAI_API_KEY.
+name: Evals
+
+on:
+  workflow_dispatch:
+
+jobs:
+  evals:
+    runs-on: ubuntu-latest
+    services:
+      db:
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_USER: rumbo
+          POSTGRES_PASSWORD: rumbo
+          POSTGRES_DB: rumbo
+        ports:
+          - 5433:5432
+        options: >-
+          --health-cmd "pg_isready -U rumbo"
+          --health-interval 3s
+          --health-timeout 3s
+          --health-retries 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - name: Install dependencies
+        run: uv sync
+        working-directory: backend
+      - name: Start backend
+        run: nohup uv run uvicorn app.main:app --port 8000 > /tmp/backend.log 2>&1 &
+        working-directory: backend
+        env:
+          DATABASE_URL: postgresql+asyncpg://rumbo:rumbo@localhost:5433/rumbo
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      - name: Wait for health
+        run: |
+          for i in $(seq 1 20); do
+            curl -sf localhost:8000/health && exit 0
+            sleep 2
+          done
+          cat /tmp/backend.log
+          exit 1
+      - name: Run evals
+        run: uv run python -m evals.run
+        working-directory: backend

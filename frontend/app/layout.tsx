@@ -23,10 +23,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${fraunces.variable} ${instrument.variable} ${jetbrains.variable} bg-bg font-body text-ink antialiased`}
       >
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(localStorage.getItem("rumbo-theme")==="light")document.documentElement.dataset.theme="light"}catch(e){}`,
+          }}
+        />
         {children}
       </body>
     </html>

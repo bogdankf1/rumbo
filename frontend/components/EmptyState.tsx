@@ -8,8 +8,8 @@ export function EmptyState({
   demoLoading: boolean;
 }) {
   return (
-    <div className="fade-up flex h-full flex-col items-center justify-center px-8 text-center">
-      <h1 className="font-display text-4xl italic leading-tight">
+    <div className="fade-up flex h-full flex-col items-center justify-center px-6 text-center sm:px-8">
+      <h1 className="font-display text-3xl italic leading-tight sm:text-4xl">
         Where do you <span className="text-accent">actually</span> stand?
       </h1>
       <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">
