@@ -10,7 +10,7 @@ Career intelligence over one resume and the roles you want. Upload a resume (PDF
 |---|---|---|
 | ![Dark](docs/media/rumbo-dark-citations.png) | ![Light](docs/media/rumbo-light.png) | ![Mobile](docs/media/rumbo-mobile-drawer.png) |
 
-A screen-recorded walkthrough is in [docs/media/rumbo-demo.webm](docs/media/rumbo-demo.webm).
+**[Watch the 6 minute narrated walkthrough](https://www.loom.com/share/5b6fc8077237485db961c8e6dc1992b8)** covering the demo dataset, deterministic scoring, cited answers, refusals, live PDF extraction, and both themes. A silent screen capture also lives in [docs/media/rumbo-demo.webm](docs/media/rumbo-demo.webm).
 
 ## Quick setup
 
